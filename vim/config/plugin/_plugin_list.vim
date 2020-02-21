@@ -2,6 +2,7 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'scrooloose/nerdtree'
 Plug 'twitvim/twitvim'
-Plug 'dracula/vim', {'as': 'dracula'}
+Plug 'itchyny/lightline.vim'
+Plug 'nanotech/jellybeans.vim'
 
 call plug#end()

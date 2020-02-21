@@ -19,3 +19,6 @@ set list listchars=trail:\␣
 " Indent
 " インデントは2スペ
 set shiftwidth=2
+
+" ステータスラインを表示
+set laststatus=2
