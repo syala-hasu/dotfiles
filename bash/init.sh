@@ -1,3 +1,4 @@
+#!/bin/sh
 INIT_DIR=$(cd $(dirname $0); pwd)
 cd $INIT_DIR
 

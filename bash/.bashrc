@@ -13,3 +13,4 @@ alias ls='ls -G'
 alias ll='ls -la'
 
 export LSCOLORS=gxfxcxdxbxegexabagacad
+
