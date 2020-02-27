@@ -1,3 +1,6 @@
+set nocompatible
+set backspace=indent,eol,start
+
 " UTF-8
 set fenc=utf-8
 
@@ -22,3 +25,14 @@ set shiftwidth=2
 
 " ステータスラインを表示
 set laststatus=2
+
+" カーソルラインを表示
+set cursorline
+
+" シンタックスハイライトを有効
+syntax enable
+
+" 新しいウィンドウを下に開く
+set splitbelow
+" 新しいウィンドウを右に開く
+set splitright
