@@ -9,8 +9,22 @@ echo "     \__/  \__/     |_______||_______| \______| \______/  |__|  |__| |____
 echo ""
 echo ""
 
+# import util #######
+dir_path=~/dotfiles/bash/util
+dirs=`find $dir_path -type f`
+for dir in $dirs;
+do
+  . $dir
+done
+#####################
+
 # alias
-alias ls='ls -G'
+if [ $OS = "Mac" ] ; then
+  alias ls='ls -G'
+elif [ $OS = "Linux" ] ; then
+  alias ls='ls --color=always'
+fi
+
 alias ll='ls -la'
 alias bash_edit='vim ~/.bashrc && source ~/.bashrc'
 alias vim_plug='vim ~/dotfiles/vim/config/plugin/00_plugin_list.vim'

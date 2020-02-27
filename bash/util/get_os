@@ -1,0 +1,9 @@
+function get_os() {
+  if [ "$(uname)" == 'Darwin' ]; then
+    export OS='Mac'
+  elif [ "$(expr substr $(uname -s) 1 5)" == 'Linux' ]; then
+    export OS='Linux'
+  else
+    echo "Your platform ($(uname -a)) is not supported."
+  fi
+}
