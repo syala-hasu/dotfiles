@@ -1,6 +1,14 @@
-#!/bin/sh
+#!/bin/bash
 INIT_DIR=$(cd $(dirname $0); pwd)
-cd $INIT_DIR
+# cd $INIT_DIR
+
+if [ -f ~/.bashrc ] ; then
+  if [ -L ~/.bashrc ] ; then
+    unlink ~/.bashrc
+  else
+    rm -f ~/.bashrc
+  fi
+fi
 
 ln -s $INIT_DIR/.bashrc ~/.bashrc
 
@@ -12,3 +20,4 @@ if [ $? = 1 ] ; then
   echo "    . ~/.bashrc" >> ~/.bash_profile
   echo "fi" >> ~/.bash_profile
 fi
+
