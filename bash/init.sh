@@ -21,3 +21,7 @@ if [ $? = 1 ] ; then
   echo "fi" >> ~/.bash_profile
 fi
 
+
+# git
+ git config --global user.email ""
+ git config --global user.name "HASU"
