@@ -36,3 +36,10 @@ syntax enable
 set splitbelow
 " 新しいウィンドウを右に開く
 set splitright
+
+" swpファイル出力先
+set directory=~/.vim
+" バックアップファイル出力先
+set backupdir=~/.vim
+" undoファイル出力先
+set undodir=~/.vim
