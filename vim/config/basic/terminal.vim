@@ -1,1 +1,1 @@
-map <C-b> :term ++rows=10<CR>
+noremap <C-b> :term ++rows=10<CR>
