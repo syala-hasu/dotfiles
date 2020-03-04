@@ -1,8 +1,10 @@
 " Normal Mode
-noremap <Up> <Nop>
-noremap <Down> <Nop>
-noremap <Left> <Nop>
-noremap <Right> <Nop>
+nnoremap <Up> <Nop>
+nnoremap <Down> <Nop>
+nnoremap <Left> <Nop>
+nnoremap <Right> <Nop>
+" NormalでもEnterで改行
+nnoremap <CR> i<Return><ESC>
 
 " Insert Mode
 " jjでNormalモードに
@@ -21,3 +23,9 @@ inoremap <Right> <Nop>
 
 " Visual Mode
 " jjでNormalモードに 
+vnoremap <Up> <Nop>
+vnoremap <Down> <Nop>
+vnoremap <Left> <Nop>
+vnoremap <Right> <Nop>
+
+
