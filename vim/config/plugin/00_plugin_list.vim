@@ -5,6 +5,7 @@ Plug 'jistr/vim-nerdtree-tabs'
 Plug 'twitvim/twitvim'
 Plug 'itchyny/lightline.vim'
 Plug 'nanotech/jellybeans.vim'
+Plug 'reireias/vim-cheatsheet'
 
 " Back----------
 " Golang
@@ -26,4 +27,7 @@ Plug 'posva/vim-vue'
 Plug 'syala-hasu/init-vue-component.vim'
 
 " EndFront----------
+
+" Markdown----------
+" EndMarkdown----------
 call plug#end()
