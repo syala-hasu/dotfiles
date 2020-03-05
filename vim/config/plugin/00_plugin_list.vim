@@ -18,6 +18,9 @@ Plug 'reireias/vim-cheatsheet'
 " HTML
 Plug 'othree/html5.vim'
 
+" TypeScript
+Plug 'leafgarland/typescript-vim'
+
 " CSS/Sass
 Plug 'hail2u/vim-css3-syntax'
 Plug 'cakebaker/scss-syntax.vim'
