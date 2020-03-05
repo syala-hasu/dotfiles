@@ -1,5 +1,5 @@
 " Ctrl+nでツリー起動
-noremap <C-n> <plug>NERDTreeTabsToggle<CR>
+map <C-n> <plug>NERDTreeTabsToggle<CR>
 
 " 隠しファイルを表示する
 let NERDTreeShowHidden = 1
