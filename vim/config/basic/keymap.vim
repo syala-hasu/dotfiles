@@ -5,6 +5,8 @@ nnoremap <Left> <Nop>
 nnoremap <Right> <Nop>
 " NormalでもEnterで改行
 nnoremap <CR> i<Return><ESC>
+" CTRL+Sで保存(:w)
+nnoremap <C-s> :w<CR>
 
 " Insert Mode
 " jjでNormalモードに

@@ -23,6 +23,7 @@ if [ $OS = "Mac" ] ; then
   alias ls='ls -G'
 elif [ $OS = "Linux" ] ; then
   alias ls='ls --color=always'
+  stty stop undef
 fi
 
 alias ll='ls -la'
