@@ -7,6 +7,10 @@ Plug 'itchyny/lightline.vim'
 Plug 'nanotech/jellybeans.vim'
 Plug 'reireias/vim-cheatsheet'
 
+" Utility----------
+" 括弧補完
+Plug 'cohama/lexima.vim'
+
 " Back----------
 " Golang
 " Plug 'fatih/vim-go'
