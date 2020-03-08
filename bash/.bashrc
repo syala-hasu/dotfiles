@@ -31,3 +31,9 @@ alias bash_edit='vim ~/.bashrc && source ~/.bashrc'
 alias vim_plug='vim ~/dotfiles/vim/config/plugin/00_plugin_list.vim && vim +":PlugInstall" +":qa"'
 
 export LSCOLORS=gxfxcxdxbxegexabagacad
+
+# git
+source ~/.git-completion
+source ~/.git-prompt
+
+export PS1='\[\e[1;33m\]./\W \[\e[1;34m\]\t\[\e[1;35m\]$(__git_ps1) \[\e[m\]\r\n\$ '

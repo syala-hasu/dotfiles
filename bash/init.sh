@@ -21,7 +21,9 @@ if [ $? = 1 ] ; then
   echo "fi" >> ~/.bash_profile
 fi
 
-
 # git
- git config --global user.email ""
- git config --global user.name "HASU"
+git config --global user.email ""
+git config --global user.name "Ekahs"
+
+wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -O ~/.git-completion
+wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh -O ~/.git-prompt
