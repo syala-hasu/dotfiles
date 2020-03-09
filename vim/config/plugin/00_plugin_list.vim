@@ -21,6 +21,7 @@ Plug 'cohama/lexima.vim'
 " Front----------
 " HTML
 Plug 'othree/html5.vim'
+Plug 'mattn/emmet-vim'
 
 " TypeScript
 Plug 'leafgarland/typescript-vim'
