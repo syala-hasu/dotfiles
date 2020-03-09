@@ -34,3 +34,4 @@ elif [ $OS = "Linux" ] ; then
   wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -O ~/.git-completion
   wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh -O ~/.git-prompt
 fi
+
