@@ -23,7 +23,7 @@ fi
 
 # git
 git config --global user.email ""
-git config --global user.name "Ekahs"
+git config --global user.name "syala-hasu"
 
 . $INIT_DIR/util/get_os 
 
