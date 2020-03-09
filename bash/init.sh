@@ -22,8 +22,8 @@ if [ $? = 1 ] ; then
 fi
 
 # git
-git config --global user.email ""
-git config --global user.name "syala-hasu"
+git config --global user.email "syala-hasu@gmail.com"
+git config --global user.name "Ekahs"
 
 . $INIT_DIR/util/get_os 
 
