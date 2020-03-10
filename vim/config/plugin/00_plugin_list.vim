@@ -10,6 +10,8 @@ Plug 'reireias/vim-cheatsheet'
 " Utility----------
 " 括弧補完
 Plug 'cohama/lexima.vim'
+" ファイルを検索して開く
+Plug 'ctrlpvim/ctrlp.vim'
 
 " Back----------
 " Golang
