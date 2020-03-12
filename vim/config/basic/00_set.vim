@@ -43,3 +43,6 @@ set directory=~/.vim
 set backupdir=~/.vim
 " undoファイル出力先
 set undodir=~/.vim
+" スクロールするときに3行空ける
+set scrolloff=3
+

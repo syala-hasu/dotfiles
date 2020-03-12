@@ -12,6 +12,8 @@ Plug 'reireias/vim-cheatsheet'
 Plug 'cohama/lexima.vim'
 " ファイルを検索して開く
 Plug 'ctrlpvim/ctrlp.vim'
+" 置換プレビュー
+Plug 'markonm/traces.vim'
 
 " Back----------
 " Golang
@@ -24,6 +26,8 @@ Plug 'ctrlpvim/ctrlp.vim'
 " HTML
 Plug 'othree/html5.vim'
 Plug 'mattn/emmet-vim'
+" HTMLタグを自動で閉じてくれるやつ
+Plug 'alvan/vim-closetag'
 
 " TypeScript
 Plug 'leafgarland/typescript-vim'
