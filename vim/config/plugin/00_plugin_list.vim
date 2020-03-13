@@ -14,6 +14,8 @@ Plug 'cohama/lexima.vim'
 Plug 'ctrlpvim/ctrlp.vim'
 " 置換プレビュー
 Plug 'markonm/traces.vim'
+" Git操作
+Plug 'tpope/vim-fugitive'
 
 " Back----------
 " Golang
