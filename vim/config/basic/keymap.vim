@@ -6,9 +6,11 @@ nnoremap <Right> <Nop>
 " NormalでもEnterで改行
 nnoremap <CR> i<Return><ESC>
 " NormalでもBackspaceで文字消去
-nnoremap <BS> i<BS><ESC>l
+nnoremap <BS> X
 " CTRL+Sで保存(:w)
-nnoremap <C-s> :w<CR>
+nnoremap <C-S> :w<CR>
+" CTRL+Qで閉じる(:q)
+nnoremap <C-Q> :q<CR>
 
 " Insert Mode
 " jjでNormalモードに
@@ -19,6 +21,8 @@ inoremap <Up> <Nop>
 inoremap <Down> <Nop>
 inoremap <Left> <Nop>
 inoremap <Right> <Nop>
+" InsertモードでもCTRL+Sで保存
+inoremap <C-S> <ESC>:w<CR>
 
 " inoremap <C-k> <Up>
 " inoremap <C-j> <Down>

@@ -48,3 +48,6 @@ set scrolloff=3
 
 " ファイルに更新があれば自動で再読み込み
 set autoread
+
+" コマンドを表示
+set showcmd
