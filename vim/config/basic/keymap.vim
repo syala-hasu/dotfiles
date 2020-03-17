@@ -15,6 +15,8 @@ nnoremap <C-Q> :q<CR>
 " Insert Mode
 " jjでNormalモードに
 inoremap <silent> jj <ESC>
+" (一応...)
+inoremap <silent> っｊ <ESC>
 " Insert時Escを無効
 " inoremap <ESC> <Nop>
 inoremap <Up> <Nop>
