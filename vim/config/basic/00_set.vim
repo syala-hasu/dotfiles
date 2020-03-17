@@ -46,3 +46,5 @@ set undodir=~/.vim
 " スクロールするときに3行空ける
 set scrolloff=3
 
+" ファイルに更新があれば自動で再読み込み
+set autoread
