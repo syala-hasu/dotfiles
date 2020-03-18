@@ -19,6 +19,7 @@ done
 #####################
 
 # alias
+export OS=`get_os`
 if [ $OS = "Mac" ] ; then
   alias ls='ls -G'
   stty stop undef
@@ -39,4 +40,9 @@ export LSCOLORS=gxfxcxdxbxegexabagacad
 source ~/.git-completion
 source ~/.git-prompt
 
-export PS1='\[\e[1;33m\]./\W \[\e[1;34m\]\t\[\e[1;35m\]$(__git_ps1) \[\e[m\]\r\n\$ '
+dispatch () {
+  export EXIT_STATUS="$?" # 直前のコマンド実行結果のエラーコードを保存
+}
+export PROMPT_COMMAND=dispatch
+
+export PS1='\[\e[1;33m\]./\W \[\e[1;34m\]\t\[\e[1;35m\]$(__git_ps1) \[\e[m\]\r\n\033[1;30;47m`get_face` \033[m '

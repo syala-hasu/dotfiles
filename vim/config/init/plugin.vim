@@ -45,4 +45,9 @@ Plug 'syala-hasu/init-vue-component.vim'
 
 " Markdown----------
 " EndMarkdown----------
+"
+" Docker----------
+" DockerFile Syntax
+Plug 'ekalinin/Dockerfile.vim'
+" EndDocker----------
 call plug#end()

@@ -26,6 +26,7 @@ git config --global user.email "syalahasu@gmail.com"
 git config --global user.name "Ekahs"
 
 . $INIT_DIR/util/get_os 
+OS=`get_os`
 
 if [ $OS = "Mac" ] ; then
   curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash > ~/.git-completion
