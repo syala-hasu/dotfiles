@@ -5,7 +5,6 @@ Plug 'jistr/vim-nerdtree-tabs'
 Plug 'twitvim/twitvim'
 Plug 'itchyny/lightline.vim'
 Plug 'nanotech/jellybeans.vim'
-Plug 'reireias/vim-cheatsheet'
 
 " Utility----------
 " 括弧補完

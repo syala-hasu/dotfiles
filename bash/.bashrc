@@ -31,7 +31,7 @@ fi
 
 alias ll='ls -la'
 alias bash_edit='vim ~/.bashrc && source ~/.bashrc'
-alias vim_plug='vim ~/dotfiles/vim/config/plugin/00_plugin_list.vim && vim +":PlugInstall" +":qa"'
+alias vim_plug='vim ~/dotfiles/vim/config/init/plugin.vim && vim +":PlugClean" +":PlugInstall" +":qa"'
 alias vimrc_count='cat ~/dotfiles/vim/config/**/*.vim | grep -v -e "^\"" -e "^$" | wc -l'
 export LSCOLORS=gxfxcxdxbxegexabagacad
 
