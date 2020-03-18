@@ -1,0 +1,10 @@
+#!bin/bash
+
+function get_face() {
+  FACE='(｀・ω・´)'
+  if [ ${EXIT_STATUS} -ne 0 ] ; then
+    FACE='(´・ω・｀)' 
+  fi
+
+  echo $FACE
+}
