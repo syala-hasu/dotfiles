@@ -41,6 +41,9 @@ Plug 'cakebaker/scss-syntax.vim'
 Plug 'posva/vim-vue'
 Plug 'syala-hasu/init-vue-component.vim'
 
+" Elm
+Plug 'andys8/vim-elm-syntax'
+
 " EndFront----------
 
 " Markdown----------
