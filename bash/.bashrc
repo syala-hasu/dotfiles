@@ -35,6 +35,7 @@ alias bash_edit='vim ~/.bashrc && source ~/.bashrc'
 alias vim_plug='vim ~/dotfiles/vim/config/init/plugin.vim && vim +":PlugClean" +":PlugInstall" +":qa"'
 alias vimrc_count='cat ~/dotfiles/vim/config/**/*.vim | grep -v -e "^\"" -e "^$" | wc -l'
 export LSCOLORS=gxfxcxdxbxegexabagacad
+export LANG=ja_JP.UTF-8
 
 # git
 source ~/.git-completion
