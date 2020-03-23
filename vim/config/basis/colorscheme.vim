@@ -1,1 +1,1 @@
-colorscheme evening
+colorscheme darkblue
