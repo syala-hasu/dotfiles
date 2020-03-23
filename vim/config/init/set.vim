@@ -29,7 +29,7 @@ set shiftwidth=2
 set laststatus=2
 
 " カーソルラインを表示
-set cursorline
+" set cursorline
 
 " シンタックスハイライトを有効
 syntax enable

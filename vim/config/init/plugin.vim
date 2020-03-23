@@ -4,7 +4,6 @@ Plug 'scrooloose/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'twitvim/twitvim'
 Plug 'itchyny/lightline.vim'
-Plug 'nanotech/jellybeans.vim'
 
 " Utility----------
 " 括弧補完
