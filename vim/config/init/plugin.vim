@@ -18,7 +18,8 @@ Plug 'tpope/vim-fugitive'
 " Back----------
 " Golang
 " Plug 'fatih/vim-go'
-
+" Nim
+Plug 'syala-hasu/nim-syntax.vim'
 " EndBack----------
 
 
