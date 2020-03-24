@@ -46,4 +46,4 @@ dispatch () {
 }
 export PROMPT_COMMAND=dispatch
 
-export PS1='\[\e[1;33m\]./\W \[\e[1;34m\]\t\[\e[1;35m\]$(__git_ps1) \[\e[m\]\r\n\033[1;30;47m`get_face` \033[m '
+export PS1='\[\e[1;33m\]./\W \[\e[1;34m\]\t\[\e[1;35m\]$(__git_ps1) \[\e[m\]\r\n\033[1;30;47m`get_face`.oO(\h) \033[m '
