@@ -1,0 +1,4 @@
+#!/bin/bash
+function exist_command() {
+  return `type $1 > /dev/null 2>&1`
+}
