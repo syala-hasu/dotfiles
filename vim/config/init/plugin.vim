@@ -20,6 +20,8 @@ Plug 'tpope/vim-fugitive'
 " Plug 'fatih/vim-go'
 " Nim
 Plug 'syala-hasu/nim-syntax.vim'
+" Haskell
+Plug 'neovimhaskell/haskell-vim'
 " EndBack----------
 
 
