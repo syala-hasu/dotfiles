@@ -1,1 +1,1 @@
-colorscheme darkblue
+colorscheme peachpuff
