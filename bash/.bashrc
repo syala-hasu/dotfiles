@@ -34,6 +34,11 @@ alias ll='ls -la'
 alias bash_edit='vim ~/.bashrc && source ~/.bashrc'
 alias vim_plug='vim ~/dotfiles/vim/config/init/plugin.vim && vim +":PlugClean" +":PlugInstall" +":qa"'
 alias vimrc_count='cat ~/dotfiles/vim/config/**/*.vim | grep -v -e "^\"" -e "^$" | wc -l'
+
+if exist_command docker-compose; then
+  alias dc='docker-compose'
+fi
+
 export LSCOLORS=gxfxcxdxbxegexabagacad
 export LANG=ja_JP.UTF-8
 
