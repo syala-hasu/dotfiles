@@ -40,7 +40,6 @@ if exist_command docker-compose; then
 fi
 
 export LSCOLORS=gxfxcxdxbxegexabagacad
-export LANG=ja_JP.UTF-8
 
 # git
 source ~/.git-completion
@@ -52,3 +51,7 @@ dispatch () {
 export PROMPT_COMMAND=dispatch
 
 export PS1='\033\[\e[1;33m\]./\W \[\e[1;34m\]\t\[\e[1;35m\]$(__git_ps1) \[\e[m\]\r\n\033[1;30;47m`get_face`.oO(\h) \033[m '
+
+export NVM_DIR="$HOME/.config/nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
