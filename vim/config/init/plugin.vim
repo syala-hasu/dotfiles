@@ -49,6 +49,7 @@ Plug 'andys8/vim-elm-syntax'
 " EndFront----------
 
 " Markdown----------
+Plug 'plasticboy/vim-markdown'
 " EndMarkdown----------
 "
 " Docker----------

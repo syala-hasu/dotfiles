@@ -4,7 +4,7 @@ set backspace=indent,eol,start
 " UTF-8
 set fenc=utf-8
 set encoding=utf-8
-set fileencodings=iso-2022-jp,euc-jp,sjis,utf-8
+set fileencodings=utf-8,sjis,euc-jp,iso-2022-jp
 
 " 行番号表示
 set number
