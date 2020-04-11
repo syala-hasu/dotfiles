@@ -48,6 +48,11 @@ Plug 'andys8/vim-elm-syntax'
 
 " EndFront----------
 
+" App----------
+" Flutter
+Plug 'dart-lang/dart-vim-plugin'
+" EndApp---------
+
 " Markdown----------
 Plug 'plasticboy/vim-markdown'
 " EndMarkdown----------
