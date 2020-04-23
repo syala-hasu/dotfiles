@@ -5,3 +5,6 @@ if [ $OS = "Linux" ]; then
   sudo apt-get autoremove
 fi
 
+if [ $OS = "Mac" ]; then
+  brew uninstall tmux
+fi
