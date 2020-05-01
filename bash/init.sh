@@ -25,6 +25,11 @@ if [ $? = 1 ] ; then
   echo "fi" >> ~/.bash_profile
 fi
 
+if [ $SHELL == '/bin/zsh' ]; then
+  ln -s ~/.bash_profile ~/.zprofile
+  ln -s $INIT_DIR/.bashrc ~/.zshrc
+fi
+
 # git
 git config --global user.email "syalahasu@gmail.com"
 git config --global user.name "Ekahs"
