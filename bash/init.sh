@@ -31,8 +31,8 @@ if [ $SHELL == '/bin/zsh' ]; then
 fi
 
 # git
-git config --global user.email "syalahasu@gmail.com"
-git config --global user.name "Ekahs"
+# git config --global user.email "syalahasu@gmail.com"
+# git config --global user.name "Ekahs"
 
 . $INIT_DIR/util/get_os 
 OS=`get_os`
