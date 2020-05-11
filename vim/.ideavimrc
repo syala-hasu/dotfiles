@@ -1,0 +1,2 @@
+source ~/dotfiles/vim/config/init/set.vim
+source ~/dotfiles/vim/config/basis/keymap.vim
