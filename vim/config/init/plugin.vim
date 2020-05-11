@@ -5,6 +5,14 @@ Plug 'jistr/vim-nerdtree-tabs'
 Plug 'twitvim/twitvim'
 Plug 'itchyny/lightline.vim'
 
+" LSP----------
+Plug 'prabirshrestha/async.vim'
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'mattn/vim-lsp-settings'
+" EndLSP----------
+
 " Utility----------
 " 括弧補完
 Plug 'cohama/lexima.vim'

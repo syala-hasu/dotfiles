@@ -12,6 +12,8 @@ nnoremap <C-S> :w<CR>
 " CTRL+Qで閉じる(:q)
 nnoremap <C-Q> :q<CR>
 
+nmap <buffer> gd <Plug>(lsp-definition)
+
 " Insert Mode
 " jjでNormalモードに
 inoremap <silent> jj <ESC>
