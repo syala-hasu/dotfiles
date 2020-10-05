@@ -69,4 +69,6 @@ Plug 'plasticboy/vim-markdown'
 " DockerFile Syntax
 Plug 'ekalinin/Dockerfile.vim'
 " EndDocker----------
+
+Plug 'martinda/Jenkinsfile-vim-syntax'
 call plug#end()
