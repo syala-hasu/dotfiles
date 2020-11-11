@@ -1,0 +1,11 @@
+#!/bin/bash
+
+function main() {
+  if type "${1}" > /dev/null 2>&1; then
+    echo "0" # exist
+  else
+    echo "1"
+  fi
+}
+
+main $1
