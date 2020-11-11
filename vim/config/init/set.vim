@@ -27,6 +27,7 @@ set shiftwidth=2
 
 " ステータスラインを表示
 set laststatus=2
+set noshowmode
 
 " カーソルラインを表示
 " set cursorline

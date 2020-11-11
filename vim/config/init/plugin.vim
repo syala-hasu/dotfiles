@@ -40,6 +40,10 @@ Plug 'mattn/emmet-vim'
 " HTMLタグを自動で閉じてくれるやつ
 Plug 'alvan/vim-closetag'
 
+" JavaScript
+Plug 'yuezk/vim-js'
+Plug 'maxmellon/vim-jsx-pretty'
+
 " TypeScript
 Plug 'leafgarland/typescript-vim'
 
