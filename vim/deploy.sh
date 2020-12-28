@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/zsh
 INIT_DIR=$(cd $(dirname $0); pwd)
 
 if [ ! -d ~/.vim ] ; then

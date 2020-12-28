@@ -1,0 +1,12 @@
+#!/bin/bash
+
+function main() {
+  FACE='(`･ω･´)'
+  if [ ${EXIT_STATUS} -ne 0  ] ; then
+    FACE='(´･ω･`)'
+  fi
+
+  echo $FACE
+}
+
+main
