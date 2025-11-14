@@ -156,9 +156,9 @@ link:
 	ln -sf $(PWD)/zsh/exports.zsh ~/.config/zsh/exports.zsh
 	ln -sf $(PWD)/zsh/aliases.zsh ~/.config/zsh/aliases.zsh
 	ln -sf $(PWD)/zsh/plugins.zsh ~/.config/zsh/plugins.zsh
+	@mkdir -p ~/.vim
 	ln -sf $(PWD)/vim/.vimrc ~/.vimrc
 	ln -sf $(PWD)/vim/coc-settings.json ~/.vim/coc-settings.json
-	@mkdir -p ~/.vim
 	ln -sf $(PWD)/asdf/.tool-versions ~/.tool-versions
 	ln -sf $(PWD)/asdf/.asdfrc ~/.asdfrc
 	@echo "シンボリックリンク作成完了"
