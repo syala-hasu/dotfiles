@@ -1,0 +1,10 @@
+# asdf設定ファイル
+
+# レガシーバージョンファイルサポート
+legacy_version_file = yes
+
+# プラグインリポジトリ
+plugin_repository_last_check_duration = never
+
+# 自動再シェル化
+always_keep_download = no

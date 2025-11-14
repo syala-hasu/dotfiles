@@ -1,0 +1,13 @@
+# asdf言語バージョン管理ファイル
+# 各プロジェクトで使用するデフォルトのバージョンを指定
+# Node.js
+nodejs 23.11.0
+# Python  
+python 3.11.4
+# Go
+golang 1.24.6
+# Java
+java adoptopenjdk-21.0.7+6.0.LTS
+# GitHub CLI
+github-cli 2.79.0
+uv 0.9.2

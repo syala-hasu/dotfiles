@@ -1,0 +1,47 @@
+{
+  "suggest.noselect": true,
+  "suggest.enablePreview": true,
+  "suggest.enablePreselect": false,
+  "suggest.disableKind": false,
+  
+  "coc.preferences.formatOnSaveFiletypes": [
+    "css",
+    "markdown",
+    "javascript",
+    "typescript",
+    "typescriptreact",
+    "json",
+    "javascriptreact"
+  ],
+  
+  "tsserver.enable": true,
+  "typescript.showUnused": true,
+  "typescript.validate.enable": true,
+  "typescript.format.enable": true,
+  "typescript.preferences.quoteStyle": "single",
+  "typescript.preferences.includePackageJsonAutoImports": "auto",
+  
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact",
+    "typescript": "typescriptreact"
+  },
+  
+  "prettier.enable": true,
+  "prettier.semi": true,
+  "prettier.singleQuote": true,
+  "prettier.tabWidth": 2,
+  "prettier.trailingComma": "es5",
+  
+  "eslint.enable": true,
+  "eslint.filetypes": [
+    "javascript",
+    "typescript",
+    "javascriptreact",
+    "typescriptreact"
+  ],
+  
+  "diagnostic.errorSign": "✗",
+  "diagnostic.warningSign": "⚠",
+  "diagnostic.infoSign": "ℹ",
+  "diagnostic.hintSign": "➤"
+}
