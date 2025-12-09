@@ -166,15 +166,15 @@ vim-plugins-install:
 link:
 	@echo "設定ファイルのシンボリックリンクを作成しています..."
 	@mkdir -p ~/.config/zsh
-	ln -sf $(PWD)/zsh/.zshrc ~/.zshrc
-	ln -sf $(PWD)/zsh/exports.zsh ~/.config/zsh/exports.zsh
-	ln -sf $(PWD)/zsh/aliases.zsh ~/.config/zsh/aliases.zsh
-	ln -sf $(PWD)/zsh/plugins.zsh ~/.config/zsh/plugins.zsh
+	ln -sf $(CURDIR)/zsh/.zshrc ~/.zshrc
+	ln -sf $(CURDIR)/zsh/exports.zsh ~/.config/zsh/exports.zsh
+	ln -sf $(CURDIR)/zsh/aliases.zsh ~/.config/zsh/aliases.zsh
+	ln -sf $(CURDIR)/zsh/plugins.zsh ~/.config/zsh/plugins.zsh
 	@mkdir -p ~/.vim
-	ln -sf $(PWD)/vim/.vimrc ~/.vimrc
-	ln -sf $(PWD)/vim/coc-settings.json ~/.vim/coc-settings.json
-	ln -sf $(PWD)/asdf/.tool-versions ~/.tool-versions
-	ln -sf $(PWD)/asdf/.asdfrc ~/.asdfrc
+	ln -sf $(CURDIR)/vim/.vimrc ~/.vimrc
+	ln -sf $(CURDIR)/vim/coc-settings.json ~/.vim/coc-settings.json
+	ln -sf $(CURDIR)/asdf/.tool-versions ~/.tool-versions
+	ln -sf $(CURDIR)/asdf/.asdfrc ~/.asdfrc
 	@echo "シンボリックリンク作成完了"
 
 # asdfのインストール
@@ -184,8 +184,8 @@ asdf-install:
 		git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.13.1; \
 	fi
 	@echo "asdfプラグインを追加しています..."
-	@chmod +x $(PWD)/asdf/install-plugins.sh
-	@$(PWD)/asdf/install-plugins.sh
+	@chmod +x $(CURDIR)/asdf/install-plugins.sh
+	@$(CURDIR)/asdf/install-plugins.sh
 	@echo "言語ツールをインストールしています..."
 	@~/.asdf/bin/asdf install || echo "一部のツールは既にインストール済みです"
 	@echo "lazygitをインストールしています..."
@@ -213,5 +213,5 @@ test-docker-build: docker-install
 # Dockerでのテスト実行
 test-docker: docker-install test-docker-build
 	@echo "Dockerでdotfilesのインストールテストを実行しています..."
-	docker run --rm -v $(PWD):/home/testuser/dotfiles dotfiles-test
+	docker run --rm -v $(CURDIR):/home/testuser/dotfiles dotfiles-test
 	@echo "Dockerテストが完了しました"
