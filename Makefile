@@ -1,4 +1,4 @@
-.PHONY: help install backup link clean asdf-install zsh-install zsh-default oh-my-zsh-install zsh-plugins-install vim-plugins-install docker-install check-deps test-docker test-docker-build
+.PHONY: help install backup link clean asdf-install zsh-install zsh-default oh-my-zsh-install zsh-plugins-install vim-plugins-install docker-install claude-install check-deps test-docker test-docker-build
 
 # デフォルトターゲット
 help:
@@ -11,6 +11,7 @@ help:
 	@echo "  zsh-plugins-install - zshプラグインをインストール"
 	@echo "  vim-plugins-install - Vimプラグインをインストール"
 	@echo "  docker-install - Dockerをインストール"
+	@echo "  claude-install - Claude Code CLIをインストール"
 	@echo "  backup       - 既存の設定ファイルをバックアップ"
 	@echo "  link         - 設定ファイルのシンボリックリンクを作成"
 	@echo "  asdf-install - asdfのインストールと言語ツールのセットアップ"
@@ -128,6 +129,19 @@ docker-install:
 		fi; \
 	else \
 		echo "Dockerは既にインストールされています"; \
+	fi
+
+# Claude Code CLIのインストール
+claude-install:
+	@echo "Claude Code CLIの存在確認中..."
+	@if ! command -v claude >/dev/null 2>&1; then \
+		echo "Claude Code CLIが見つかりません。インストールしています..."; \
+		curl -fsSL https://claude.ai/install.sh | bash; \
+		echo "Claude Code CLIのインストールが完了しました"; \
+		echo "ターミナルを再起動するか、'source ~/.zshrc' を実行してください"; \
+	else \
+		echo "Claude Code CLIは既にインストールされています"; \
+		claude --version; \
 	fi
 
 # 既存設定ファイルのバックアップ
