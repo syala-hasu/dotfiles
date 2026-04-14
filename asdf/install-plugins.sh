@@ -17,7 +17,7 @@ PLUGINS=(
     "direnv https://github.com/asdf-community/asdf-direnv.git"
     "starship https://github.com/gr1m0h/asdf-starship.git"
     "eza https://github.com/lwiechec/asdf-eza.git"
-    "zoxide https://github.com/nyrst/asdf-zoxide"
+    "zoxide https://github.com/aniaan/asdf-zoxide"
     "lazygit https://github.com/nklmilojevic/asdf-lazygit.git"
     "fzf https://github.com/kompiro/asdf-fzf.git"
 )
