@@ -3,6 +3,8 @@
 
 set -e
 
+ASDF="${ASDF_DATA_DIR:-$HOME/.asdf}/bin/asdf"
+
 echo "🔧 asdfプラグインをインストール中..."
 
 # プラグインリスト
@@ -22,15 +24,15 @@ PLUGINS=(
 
 for plugin_info in "${PLUGINS[@]}"; do
     read -r plugin_name plugin_url <<< "$plugin_info"
-    
-    if asdf plugin list | grep -q "^${plugin_name}$"; then
+
+    if $ASDF plugin list | grep -q "^${plugin_name}$"; then
         echo "✅ ${plugin_name} プラグインは既にインストール済み"
     else
         echo "📦 ${plugin_name} プラグインをインストール中..."
         if [ -n "$plugin_url" ]; then
-            asdf plugin add "$plugin_name" "$plugin_url" || true
+            $ASDF plugin add "$plugin_name" "$plugin_url" || true
         else
-            asdf plugin add "$plugin_name" || true
+            $ASDF plugin add "$plugin_name" || true
         fi
     fi
 done

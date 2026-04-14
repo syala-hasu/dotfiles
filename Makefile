@@ -214,11 +214,12 @@ backup:
 # Vimプラグインのインストール
 vim-plugins-install:
 	@echo "Vimプラグインをインストールしています..."
-	@if [ -f ~/.vim/autoload/plug.vim ]; then \
-		vim +PlugInstall +qall 2>/dev/null || echo "Vimプラグインのインストールが完了しました"; \
-	else \
-		echo "vim-plugがまだインストールされていません。Vimを一度起動してください"; \
+	@if [ ! -f ~/.vim/autoload/plug.vim ]; then \
+		echo "vim-plugをインストールしています..."; \
+		curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+			https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim; \
 	fi
+	@vim +PlugInstall +qall 2>/dev/null || echo "Vimプラグインのインストールが完了しました"
 
 # シンボリックリンクの作成
 link:
