@@ -248,6 +248,7 @@ asdf-install:
 	@$(CURDIR)/asdf/install-plugins.sh
 	@echo "言語ツールをインストールしています..."
 	@~/.asdf/bin/asdf install || echo "一部のツールは既にインストール済みです"
+	@~/.asdf/bin/asdf reshim
 	@echo "asdfのインストールが完了しました"
 
 # 完全クリーンアップ
