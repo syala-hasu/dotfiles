@@ -1,179 +1,114 @@
 # dotfiles
 
-個人用のdotfiles設定リポジトリです。zsh、vim、asdfなどの設定を管理しています。
+個人用のdotfiles設定リポジトリです。zsh、vim、tmux、asdfなどの設定を管理しています。
 
-## 📋 目次
+## 必要な前提条件
 
-- [必要な前提条件](#必要な前提条件)
-- [インストール手順](#インストール手順)
-- [含まれる設定](#含まれる設定)
-- [使い方](#使い方)
-- [カスタマイズ](#カスタマイズ)
-- [トラブルシューティング](#トラブルシューティング)
+- Git
+- curl
+- make
 
-## 🔧 必要な前提条件
-
-- **Git**: リポジトリのクローンに必要
-- **curl**: 各種ツールのインストールに使用
-- **make**: Makefileを実行するために必要
-
-インストール時に自動的にインストールされるもの:
-- zsh
-- oh-my-zsh
-- asdf (言語バージョン管理ツール)
-- vim-plug (Vimプラグインマネージャー)
-
-## 🚀 インストール手順
-
-### 1. リポジトリをクローン
+## インストール
 
 ```bash
-git clone <your-repo-url> ~/dotfiles
+git clone git@github.com:syala-hasu/dotfiles.git ~/dotfiles
 cd ~/dotfiles
-```
-
-### 2. 自動インストールを実行
-
-```bash
 make install
 ```
 
-このコマンドは以下を自動的に実行します:
-- 依存関係（zsh、oh-my-zsh）のインストール
-- 既存設定ファイルのバックアップ
-- シンボリックリンクの作成
-- asdfと各種言語ツールのインストール
-- Vimプラグインのインストール
-- zshをデフォルトシェルに設定
+`make install` は以下を自動的に実行します:
 
-### 3. ターミナルを再起動
+1. zsh / vim / tmux のインストール
+2. zsh プラグイン（autosuggestions、syntax-highlighting）のインストール
+3. 既存設定ファイルのバックアップ
+4. シンボリックリンクの作成
+5. asdf と各種ツールのインストール
+6. vim プラグインのインストール
+7. zsh をデフォルトシェルに設定
 
-```bash
-exec zsh
-```
+インストール後はターミナルを再起動してください。
 
-## 📦 含まれる設定
+## 含まれる設定
 
-### Zsh設定
-- **テーマ**: agnoster
-- **プラグイン**:
-  - git
-  - zsh-autosuggestions
-  - zsh-syntax-highlighting
-  - colored-man-pages
-  - command-not-found
-- **カスタム設定**:
-  - `~/.config/zsh/exports.zsh`: 環境変数設定
-  - `~/.config/zsh/aliases.zsh`: エイリアス設定
-  - `~/.config/zsh/plugins.zsh`: プラグイン固有の設定
+### Zsh
 
-### Vim設定
-- **プラグインマネージャー**: vim-plug
+- **プロンプト**: starship
+- **プラグイン**: zsh-autosuggestions、zsh-syntax-highlighting
+- **設定ファイル**:
+  - `~/.config/zsh/exports.zsh`: 環境変数・PATH
+  - `~/.config/zsh/aliases.zsh`: エイリアス
+  - `~/.config/zsh/plugins.zsh`: プラグイン設定
+
+### Vim
+
+- **プラグインマネージャー**: vim-plug（初回起動時に自動インストール）
 - **主要プラグイン**:
-  - NERDTree (ファイルエクスプローラー)
-  - fzf (ファジーファインダー)
-  - coc.nvim (LSP・補完)
-  - TypeScript/JSX対応プラグイン
-  - Emmet (HTML/JSX展開)
+  - coc.nvim（LSP・補完）
+  - NERDTree（ファイルエクスプローラー）
+  - fzf（ファジーファインダー）
+  - vim-fugitive（Git統合）
+  - TypeScript / JSX 対応
 - **カラーテーマ**: gruvbox
 
-### asdf設定
-以下の言語・ツールのバージョン管理:
-- Node.js 23.11.0
-- Python 3.11.4
-- Go 1.24.6
-- Java (AdoptOpenJDK 21.0.7)
-- GitHub CLI 2.79.0
-- uv 0.9.2
+### tmux
 
-## 📚 使い方
+- prefix: `Ctrl-a`
+- マウスサポート有効
+- `|` / `-` でペイン分割
+- vim キーでペイン移動・コピーモード操作
 
-### Makeコマンド一覧
+### asdf で管理するツール
+
+| ツール | 用途 |
+|---|---|
+| nodejs | JavaScript ランタイム |
+| python | Python ランタイム |
+| golang | Go ランタイム |
+| github-cli | GitHub CLI |
+| uv | Python パッケージ管理 |
+| direnv | プロジェクトごとの環境変数管理 |
+| starship | プロンプト |
+| eza | ls の代替 |
+| zoxide | cd の代替 |
+| fzf | ファジーファインダー |
+| lazygit | Git TUI |
+
+## Makeコマンド
 
 ```bash
-make help           # 利用可能なコマンドを表示
 make install        # フルインストール
-make backup         # 既存設定をバックアップ
 make link           # シンボリックリンク作成
-make asdf-install   # asdfと言語ツールをインストール
+make backup         # 既存設定をバックアップ
 make clean          # シンボリックリンクを削除
-make test-docker    # Docker環境でテスト
+
+# 個別インストール
+make zsh-install
+make vim-install
+make tmux-install
+make docker-install
+make claude-install
+make gemini-install
+make codex-install
 ```
 
-## 🎨 カスタマイズ
+## カスタマイズ
 
-### ローカル設定の追加
-
-Gitで管理されないローカル設定を追加する場合:
+マシン固有の設定は Git 管理外のローカルファイルに書きます:
 
 ```bash
-# Zshのローカル設定
-vim ~/.zshrc.local
+~/.zshrc.local        # zsh のローカル設定
+~/.tmux.conf.local    # tmux のローカル設定
 ```
 
-このファイルは自動的に読み込まれますが、Gitには含まれません。
+いずれも自動的に読み込まれます。
 
-### プラグインの追加
+### 任意ツールの追加
 
-#### Zshプラグイン
-`zsh/.zshrc`の`plugins=()`に追加してください。
-
-#### Vimプラグイン
-`vim/.vimrc`の`call plug#begin()`と`call plug#end()`の間に追加し、`:PlugInstall`を実行してください。
-
-### asdfで新しい言語を追加
+asdf がインストールされていれば、dotfiles に含まれていないツールも後から追加できます:
 
 ```bash
-asdf plugin add <plugin-name>
-asdf install <plugin-name> <version>
-asdf global <plugin-name> <version>
+asdf plugin add <tool>
+asdf install <tool> <version>
+# グローバルに使う場合
+asdf global <tool> <version>
 ```
-
-## 🐛 トラブルシューティング
-
-### oh-my-zshプラグインが見つからない
-
-一部のプラグイン（zsh-autosuggestions、zsh-syntax-highlighting）は手動でインストールが必要な場合があります:
-
-```bash
-git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-```
-
-### Vimプラグインがインストールされない
-
-Vimを起動して以下を実行:
-
-```vim
-:PlugInstall
-```
-
-### asdfコマンドが見つからない
-
-ターミナルを再起動するか、以下を実行:
-
-```bash
-source ~/.zshrc
-```
-
-### バックアップを復元したい
-
-バックアップは`~/.config/backup/YYYYMMDD_HHMMSS/`に保存されています:
-
-```bash
-# 例: zshrcを復元
-cp ~/.config/backup/20240101_120000/.zshrc.bak ~/.zshrc
-```
-
-## 🧹 アンインストール
-
-```bash
-cd ~/dotfiles
-make clean
-```
-
-これにより、作成されたシンボリックリンクとインストールされたツールが削除されます。
-
----
-
-最終更新: 2025-11-14
