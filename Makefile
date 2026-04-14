@@ -235,6 +235,8 @@ link:
 	ln -sf $(CURDIR)/asdf/.tool-versions ~/.tool-versions
 	ln -sf $(CURDIR)/asdf/.asdfrc ~/.asdfrc
 	ln -sf $(CURDIR)/tmux/.tmux.conf ~/.tmux.conf
+	@mkdir -p ~/.config
+	ln -sf $(CURDIR)/starship/starship.toml ~/.config/starship.toml
 	@echo "シンボリックリンク作成完了"
 
 # asdfのインストール
@@ -247,7 +249,10 @@ asdf-install:
 	@chmod +x $(CURDIR)/asdf/install-plugins.sh
 	@$(CURDIR)/asdf/install-plugins.sh
 	@echo "言語ツールをインストールしています..."
-	@~/.asdf/bin/asdf install || echo "一部のツールは既にインストール済みです"
+	@grep -v '^#' $(CURDIR)/asdf/.tool-versions | grep -v '^$$' | while read tool version; do \
+		echo "  $$tool $$version をインストール中..."; \
+		~/.asdf/bin/asdf install "$$tool" "$$version" || echo "  $$tool: スキップ"; \
+	done
 	@~/.asdf/bin/asdf reshim
 	@echo "asdfのインストールが完了しました"
 
@@ -255,7 +260,7 @@ asdf-install:
 clean:
 	@echo "dotfilesの完全クリーンアップを実行しています..."
 	@echo "シンボリックリンクを削除中..."
-	@rm -f ~/.zshrc ~/.vimrc ~/.tool-versions ~/.asdfrc ~/.tmux.conf
+	@rm -f ~/.zshrc ~/.vimrc ~/.tool-versions ~/.asdfrc ~/.tmux.conf ~/.config/starship.toml
 	@rm -rf ~/.config/zsh
 	@echo "asdfとインストール済みツールを削除中..."
 	@rm -rf ~/.asdf

@@ -1,0 +1,40 @@
+format = """
+[ $username$hostname ](bg:#1d2230 fg:white)\
+[](fg:#1d2230 bg:#1e7b7b)\
+[ $directory ](bg:#1e7b7b fg:white bold)\
+[](fg:#1e7b7b bg:#3daf5c)\
+[ $git_branch$git_status ](bg:#3daf5c fg:black)\
+[](fg:#3daf5c)\
+$character"""
+
+[username]
+show_always = true
+format = "$user"
+
+[hostname]
+ssh_only = false
+format = "@$hostname"
+
+[directory]
+format = "$path"
+truncation_length = 5
+truncate_to_repo = false
+
+[git_branch]
+format = "$branch"
+symbol = ""
+
+[git_status]
+format = '$all_status$ahead_behind'
+ahead = "⇡${count}"
+behind = "⇣${count}"
+diverged = "⇕"
+modified = "!"
+untracked = "?"
+staged = "+"
+deleted = "✘"
+conflicted = "="
+
+[character]
+success_symbol = "[❯](bold green)"
+error_symbol = "[❯](bold red)"
