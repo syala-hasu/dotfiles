@@ -1,4 +1,4 @@
-.PHONY: help install backup link clean asdf-install zsh-install zsh-default zsh-plugins-install vim-plugins-install docker-install claude-install gemini-install codex-install check-deps
+.PHONY: help install backup link clean asdf-install zsh-install zsh-default zsh-plugins-install vim-plugins-install docker-install tmux-install claude-install gemini-install codex-install check-deps
 
 # デフォルトターゲット
 help:
@@ -10,6 +10,7 @@ help:
 	@echo "  zsh-plugins-install - zshプラグインをインストール"
 	@echo "  vim-plugins-install - Vimプラグインをインストール"
 	@echo "  docker-install - Dockerをインストール"
+	@echo "  tmux-install   - tmuxをインストール"
 	@echo "  claude-install - Claude Code CLIをインストール"
 	@echo "  gemini-install - Gemini CLIをインストール"
 	@echo "  codex-install  - Codex CLIをインストール"
@@ -121,6 +122,29 @@ docker-install:
 		echo "Dockerは既にインストールされています"; \
 	fi
 
+# tmuxのインストール
+tmux-install:
+	@echo "tmuxの存在確認中..."
+	@if ! command -v tmux >/dev/null 2>&1; then \
+		echo "tmuxが見つかりません。インストールしています..."; \
+		if command -v apt-get >/dev/null 2>&1; then \
+			sudo apt-get update && sudo apt-get install -y tmux; \
+		elif command -v yum >/dev/null 2>&1; then \
+			sudo yum install -y tmux; \
+		elif command -v dnf >/dev/null 2>&1; then \
+			sudo dnf install -y tmux; \
+		elif command -v brew >/dev/null 2>&1; then \
+			brew install tmux; \
+		else \
+			echo "パッケージマネージャーが見つかりません。手動でtmuxをインストールしてください。"; \
+			exit 1; \
+		fi; \
+		echo "tmuxのインストールが完了しました"; \
+	else \
+		echo "tmuxは既にインストールされています"; \
+		tmux -V; \
+	fi
+
 # AI CLI ツールのインストール
 claude-install:
 	@echo "Claude Code CLIの存在確認中..."
@@ -186,6 +210,7 @@ link:
 	ln -sf $(CURDIR)/vim/coc-settings.json ~/.vim/coc-settings.json
 	ln -sf $(CURDIR)/asdf/.tool-versions ~/.tool-versions
 	ln -sf $(CURDIR)/asdf/.asdfrc ~/.asdfrc
+	ln -sf $(CURDIR)/tmux/.tmux.conf ~/.tmux.conf
 	@echo "シンボリックリンク作成完了"
 
 # asdfのインストール
@@ -205,7 +230,7 @@ asdf-install:
 clean:
 	@echo "dotfilesの完全クリーンアップを実行しています..."
 	@echo "シンボリックリンクを削除中..."
-	@rm -f ~/.zshrc ~/.vimrc ~/.tool-versions ~/.asdfrc
+	@rm -f ~/.zshrc ~/.vimrc ~/.tool-versions ~/.asdfrc ~/.tmux.conf
 	@rm -rf ~/.config/zsh
 	@echo "asdfとインストール済みツールを削除中..."
 	@rm -rf ~/.asdf
