@@ -1,4 +1,4 @@
-.PHONY: help install backup link clean asdf-install zsh-install vim-install tmux-install zsh-default zsh-plugins-install vim-plugins-install docker-install claude-install gemini-install codex-install check-deps
+.PHONY: help install backup link clean asdf-install zsh-install vim-install tmux-install zsh-default zsh-plugins-install vim-plugins-install docker-install claude-install gemini-install codex-install system-deps-install check-deps
 
 # デフォルトターゲット
 help:
@@ -26,8 +26,14 @@ install: check-deps zsh-plugins-install backup link asdf-install vim-plugins-ins
 	@echo "dotfilesのインストールが完了しました！"
 
 # 依存関係のチェックとインストール
-check-deps: zsh-install vim-install tmux-install
+check-deps: system-deps-install zsh-install vim-install tmux-install
 	@echo "依存関係のチェックが完了しました"
+
+# システムライブラリのインストール
+system-deps-install:
+	@if command -v apt-get >/dev/null 2>&1; then \
+		sudo apt-get update -qq && sudo apt-get install -y -qq curl git libatomic1; \
+	fi
 
 # zshのインストール
 zsh-install:
