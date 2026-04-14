@@ -1,15 +1,15 @@
 # asdf言語バージョン管理ファイル
 # 各プロジェクトで使用するデフォルトのバージョンを指定
 # Node.js
-nodejs 23.11.0
+nodejs 25.9.0
 # Go
-golang 1.24.6
+golang 1.26.2
 # GitHub CLI
-github-cli 2.79.0
-uv 0.9.2
+github-cli 2.89.0
+uv 0.11.6
 direnv 2.37.1
-starship 1.21.1
-eza 0.20.17
-zoxide 0.9.6
-lazygit 0.44.1
-fzf 0.56.3
+starship 1.24.2
+eza 0.23.4
+zoxide 0.9.9
+lazygit 0.61.1
+fzf 0.71.0
