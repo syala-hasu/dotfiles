@@ -10,7 +10,6 @@ echo "asdfプラグインをインストール中..."
 # プラグインリスト（"name url" の形式）
 PLUGINS=(
     "nodejs https://github.com/asdf-vm/asdf-nodejs.git"
-    "python https://github.com/danhper/asdf-python.git"
     "golang https://github.com/kennyp/asdf-golang.git"
     "github-cli https://github.com/bartlomiejdanek/asdf-github-cli.git"
     "uv https://github.com/asdf-community/asdf-uv.git"

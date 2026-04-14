@@ -2,8 +2,6 @@
 # 各プロジェクトで使用するデフォルトのバージョンを指定
 # Node.js
 nodejs 23.11.0
-# Python
-python 3.11.4
 # Go
 golang 1.24.6
 # GitHub CLI
