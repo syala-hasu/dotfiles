@@ -1,4 +1,4 @@
-.PHONY: help install backup link clean asdf-install zsh-install zsh-default zsh-plugins-install vim-plugins-install docker-install tmux-install claude-install gemini-install codex-install check-deps
+.PHONY: help install backup link clean asdf-install zsh-install vim-install tmux-install zsh-default zsh-plugins-install vim-plugins-install docker-install claude-install gemini-install codex-install check-deps
 
 # デフォルトターゲット
 help:
@@ -6,6 +6,7 @@ help:
 	@echo "  install      - 依存関係チェック・設定ファイルのバックアップ・リンク作成・asdfインストールを実行"
 	@echo "  check-deps   - 必要な依存関係（zsh等）をチェックしてインストール"
 	@echo "  zsh-install  - zshをインストール"
+	@echo "  vim-install  - vimをインストール"
 	@echo "  zsh-default  - zshをデフォルトシェルに設定"
 	@echo "  zsh-plugins-install - zshプラグインをインストール"
 	@echo "  vim-plugins-install - Vimプラグインをインストール"
@@ -21,11 +22,11 @@ help:
 
 
 # メインインストール（依存関係チェックから開始）
-install: check-deps zsh-plugins-install backup link asdf-install zsh-default
+install: check-deps zsh-plugins-install backup link asdf-install vim-plugins-install zsh-default
 	@echo "dotfilesのインストールが完了しました！"
 
 # 依存関係のチェックとインストール
-check-deps: zsh-install
+check-deps: zsh-install vim-install tmux-install
 	@echo "依存関係のチェックが完了しました"
 
 # zshのインストール
@@ -48,6 +49,28 @@ zsh-install:
 		echo "zshのインストールが完了しました"; \
 	else \
 		echo "zshは既にインストールされています"; \
+	fi
+
+# vimのインストール
+vim-install:
+	@echo "vimの存在確認中..."
+	@if ! command -v vim >/dev/null 2>&1; then \
+		echo "vimが見つかりません。インストールしています..."; \
+		if command -v apt-get >/dev/null 2>&1; then \
+			sudo apt-get update && sudo apt-get install -y vim; \
+		elif command -v yum >/dev/null 2>&1; then \
+			sudo yum install -y vim; \
+		elif command -v dnf >/dev/null 2>&1; then \
+			sudo dnf install -y vim; \
+		elif command -v brew >/dev/null 2>&1; then \
+			brew install vim; \
+		else \
+			echo "パッケージマネージャーが見つかりません。手動でvimをインストールしてください。"; \
+			exit 1; \
+		fi; \
+		echo "vimのインストールが完了しました"; \
+	else \
+		echo "vimは既にインストールされています"; \
 	fi
 
 # zshプラグインのインストール
