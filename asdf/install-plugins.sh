@@ -10,8 +10,14 @@ PLUGINS=(
     "nodejs https://github.com/asdf-vm/asdf-nodejs.git"
     "python"
     "golang https://github.com/kennyp/asdf-golang.git"
-    "java"
     "github-cli"
+    "uv"
+    "direnv"
+    "starship"
+    "eza"
+    "zoxide"
+    "lazygit"
+    "fzf"
 )
 
 for plugin_info in "${PLUGINS[@]}"; do

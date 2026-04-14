@@ -1,9 +1,11 @@
 # エイリアス設定
 
-# ls系コマンドの拡張
-alias ll="ls -alF"
-alias la="ls -A" 
-alias l="ls -CF"
+# ls系コマンドの拡張（eza）
+alias ls="eza"
+alias ll="eza -la --git"
+alias la="eza -a"
+alias l="eza -l"
+alias lt="eza --tree"
 
 # grep系コマンドに色付け
 alias grep="grep --color=auto"
@@ -24,7 +26,6 @@ alias gp="git push"
 alias gl="git log --oneline --graph"
 
 # 安全性を高めるエイリアス
-alias rm="rm -i"
 alias cp="cp -i"
 alias mv="mv -i"
 

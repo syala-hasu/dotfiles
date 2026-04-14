@@ -14,7 +14,7 @@ export PATH="$HOME/bin:$PATH"
 
 # 言語設定
 export LANG=en_US.UTF-8
-export LC_ALL=C.UTF-8  # Fix locale for gcalcli and other tools
+export LC_ALL=C.UTF-8
 
 # エディタ設定
 export EDITOR=vim

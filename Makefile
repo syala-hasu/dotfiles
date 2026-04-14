@@ -1,4 +1,4 @@
-.PHONY: help install backup link clean asdf-install zsh-install zsh-default oh-my-zsh-install zsh-plugins-install vim-plugins-install docker-install claude-install check-deps test-docker test-docker-build
+.PHONY: help install backup link clean asdf-install zsh-install zsh-default zsh-plugins-install vim-plugins-install docker-install claude-install gemini-install codex-install check-deps
 
 # デフォルトターゲット
 help:
@@ -7,20 +7,20 @@ help:
 	@echo "  check-deps   - 必要な依存関係（zsh等）をチェックしてインストール"
 	@echo "  zsh-install  - zshをインストール"
 	@echo "  zsh-default  - zshをデフォルトシェルに設定"
-	@echo "  oh-my-zsh-install - oh-my-zshをインストール"
 	@echo "  zsh-plugins-install - zshプラグインをインストール"
 	@echo "  vim-plugins-install - Vimプラグインをインストール"
 	@echo "  docker-install - Dockerをインストール"
 	@echo "  claude-install - Claude Code CLIをインストール"
+	@echo "  gemini-install - Gemini CLIをインストール"
+	@echo "  codex-install  - Codex CLIをインストール"
 	@echo "  backup       - 既存の設定ファイルをバックアップ"
 	@echo "  link         - 設定ファイルのシンボリックリンクを作成"
 	@echo "  asdf-install - asdfのインストールと言語ツールのセットアップ"
 	@echo "  clean        - 作成したシンボリックリンクを削除"
-	@echo "  test-docker-build - Dockerテスト環境をビルド"
-	@echo "  test-docker  - Dockerでdotfilesのインストールをテスト"
+
 
 # メインインストール（依存関係チェックから開始）
-install: check-deps oh-my-zsh-install zsh-plugins-install backup link asdf-install vim-plugins-install zsh-default
+install: check-deps zsh-plugins-install backup link asdf-install zsh-default
 	@echo "dotfilesのインストールが完了しました！"
 
 # 依存関係のチェックとインストール
@@ -49,28 +49,18 @@ zsh-install:
 		echo "zshは既にインストールされています"; \
 	fi
 
-# oh-my-zshのインストール
-oh-my-zsh-install:
-	@echo "oh-my-zshの存在確認中..."
-	@if [ ! -d ~/.oh-my-zsh ]; then \
-		echo "oh-my-zshが見つかりません。インストールしています..."; \
-		sh -c "$$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended; \
-		echo "oh-my-zshのインストールが完了しました"; \
-	else \
-		echo "oh-my-zshは既にインストールされています"; \
-	fi
-
 # zshプラグインのインストール
 zsh-plugins-install:
 	@echo "zshプラグインをインストールしています..."
-	@if [ ! -d $${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions ]; then \
-		git clone https://github.com/zsh-users/zsh-autosuggestions $${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions; \
+	@mkdir -p ~/.zsh/plugins
+	@if [ ! -d ~/.zsh/plugins/zsh-autosuggestions ]; then \
+		git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/plugins/zsh-autosuggestions; \
 		echo "zsh-autosuggestionsをインストールしました"; \
 	else \
 		echo "zsh-autosuggestionsは既にインストールされています"; \
 	fi
-	@if [ ! -d $${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting ]; then \
-		git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting; \
+	@if [ ! -d ~/.zsh/plugins/zsh-syntax-highlighting ]; then \
+		git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.zsh/plugins/zsh-syntax-highlighting; \
 		echo "zsh-syntax-highlightingをインストールしました"; \
 	else \
 		echo "zsh-syntax-highlightingは既にインストールされています"; \
@@ -131,17 +121,38 @@ docker-install:
 		echo "Dockerは既にインストールされています"; \
 	fi
 
-# Claude Code CLIのインストール
+# AI CLI ツールのインストール
 claude-install:
 	@echo "Claude Code CLIの存在確認中..."
 	@if ! command -v claude >/dev/null 2>&1; then \
 		echo "Claude Code CLIが見つかりません。インストールしています..."; \
-		curl -fsSL https://claude.ai/install.sh | bash; \
+		npm install -g @anthropic-ai/claude-code; \
 		echo "Claude Code CLIのインストールが完了しました"; \
-		echo "ターミナルを再起動するか、'source ~/.zshrc' を実行してください"; \
 	else \
 		echo "Claude Code CLIは既にインストールされています"; \
 		claude --version; \
+	fi
+
+gemini-install:
+	@echo "Gemini CLIの存在確認中..."
+	@if ! command -v gemini >/dev/null 2>&1; then \
+		echo "Gemini CLIが見つかりません。インストールしています..."; \
+		npm install -g @google/gemini-cli; \
+		echo "Gemini CLIのインストールが完了しました"; \
+	else \
+		echo "Gemini CLIは既にインストールされています"; \
+		gemini --version; \
+	fi
+
+codex-install:
+	@echo "Codex CLIの存在確認中..."
+	@if ! command -v codex >/dev/null 2>&1; then \
+		echo "Codex CLIが見つかりません。インストールしています..."; \
+		npm install -g @openai/codex; \
+		echo "Codex CLIのインストールが完了しました"; \
+	else \
+		echo "Codex CLIは既にインストールされています"; \
+		codex --version; \
 	fi
 
 # 既存設定ファイルのバックアップ
@@ -188,8 +199,6 @@ asdf-install:
 	@$(CURDIR)/asdf/install-plugins.sh
 	@echo "言語ツールをインストールしています..."
 	@~/.asdf/bin/asdf install || echo "一部のツールは既にインストール済みです"
-	@echo "lazygitをインストールしています..."
-	@export PATH="$$HOME/.asdf/shims:$$PATH" && go install github.com/jesseduffield/lazygit@latest || echo "lazygitインストールをスキップ"
 	@echo "asdfのインストールが完了しました"
 
 # 完全クリーンアップ
@@ -204,14 +213,3 @@ clean:
 	@rm -rf ~/.config/backup
 	@echo "完全クリーンアップ完了"
 
-# Dockerテスト環境のビルド
-test-docker-build: docker-install
-	@echo "Dockerテスト環境をビルドしています..."
-	docker build -t dotfiles-test .
-	@echo "Dockerイメージのビルドが完了しました"
-
-# Dockerでのテスト実行
-test-docker: docker-install test-docker-build
-	@echo "Dockerでdotfilesのインストールテストを実行しています..."
-	docker run --rm -v $(CURDIR):/home/testuser/dotfiles dotfiles-test
-	@echo "Dockerテストが完了しました"
